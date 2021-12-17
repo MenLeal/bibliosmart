@@ -18,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
 import static bibliosmart.LectoresList.lector_rfc;
 
 public class DevolverLibro extends javax.swing.JFrame {
+    public static String id;
 
     public DevolverLibro() {
         initComponents();
@@ -253,6 +254,7 @@ public class DevolverLibro extends javax.swing.JFrame {
                 editrl = rs.getString("editorial");
                 precio = rs.getString("precio");
                 pag = rs.getString("paginas");
+                id = rs.getString("id");
                 model.addRow(new Object[]{isbn, titulo,autor,edit, editrl, precio, pag});
                 i++;
                 if (i < 1) {
@@ -312,7 +314,7 @@ public class DevolverLibro extends javax.swing.JFrame {
         txt_return_date.setText(java.time.LocalDate.now().toString());
         String isbn = libros_prestados.getValueAt(libros_prestados.getSelectedRow(), 0).toString();
         String rfc = txt_rfc.getText();
-        String qry = "UPDATE prestamos SET fecha_dev = '" + fecha_dev + "' WHERE isbn = '" + isbn + "' AND rfc_lector = '" + rfc + "'";
+        String qry = "UPDATE prestamos SET fecha_dev = '" + fecha_dev + "' WHERE isbn = '" + isbn + "' AND rfc_lector = '" + rfc + "' AND  id="+id;
         boolean r = db.execute(qry);
         if (r) {
             Tools.Helper.show(this, "Libro Devuelto");
@@ -357,6 +359,7 @@ public class DevolverLibro extends javax.swing.JFrame {
                 precio = rs.getString("precio");
                 pag = rs.getString("paginas");
                 autor = rs.getString("autor");
+                id = rs.getString("id");
                 model.addRow(new Object[]{isbn, nombre, autor,edit, editrl, precio, pag});
                 i++;
                 if (i < 1) {

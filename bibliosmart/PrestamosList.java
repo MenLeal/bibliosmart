@@ -169,7 +169,9 @@ public class PrestamosList extends javax.swing.JFrame {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
             Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/biblioteca", Login.usuario, Login.contra);
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM lector,libro,prestamos WHERE prestamos.fecha_dev is NULL and libro.ISBN = prestamos.isbn AND lector.rfc = prestamos.rfc_lector");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM lector,libro,prestamos WHERE prestamos.fecha_dev is NULL "
+                    + "and libro.ISBN = prestamos.isbn "
+                    + "AND lector.rfc = prestamos.rfc_lector");
             ResultSet rs = ps.executeQuery();
             int i = 0;
             while (rs.next()) {
@@ -206,7 +208,9 @@ public class PrestamosList extends javax.swing.JFrame {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
             Connection con2 = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/biblioteca", Login.usuario, Login.contra);
-            PreparedStatement ps2 = con2.prepareStatement("SELECT * FROM lector,libro,prestamos WHERE prestamos.fecha_dev is not NULL and libro.ISBN = prestamos.isbn and lector.rfc = prestamos.rfc_lector");
+            PreparedStatement ps2 = con2.prepareStatement("SELECT * FROM lector,libro,prestamos WHERE prestamos.fecha_dev is not NULL "
+                    + "and libro.ISBN = prestamos.isbn "
+                    + "and lector.rfc = prestamos.rfc_lector");
             ResultSet rs2 = ps2.executeQuery();
             int j = 0;
             while (rs2.next()) {

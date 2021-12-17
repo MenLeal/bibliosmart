@@ -166,7 +166,7 @@ public class UsuarioList extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String id = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
         String user = jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString();
-        DatabaseConnectivity db = new DatabaseConnectivity(Login.usuario,Login.contra);
+        DatabaseConnectivity db = new DatabaseConnectivity();
         boolean r = db.execute("DELETE FROM personal WHERE id = " + id);
         if (r) {
             db.execute("DROP USER '"+user+"'@'localhost'");

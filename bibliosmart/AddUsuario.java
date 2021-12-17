@@ -232,7 +232,6 @@ public class AddUsuario extends javax.swing.JFrame {
             } else {
                 Tools.Helper.show(this, "Intentar de nuevo");
             }
-
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

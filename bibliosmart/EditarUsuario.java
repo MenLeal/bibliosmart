@@ -249,14 +249,10 @@ public class EditarUsuario extends javax.swing.JFrame {
                     cbxInsert.setSelected(true);
                     cbxUpdate.setSelected(true);
                     cbxDelete.setSelected(true);
-                }else if (priv.equals("UD")) {
+                } else if (priv.equals("UD")) { 
                     cbxUpdate.setSelected(true);
                     cbxDelete.setSelected(true);
                 }
-                
-                
-                
-
             }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
